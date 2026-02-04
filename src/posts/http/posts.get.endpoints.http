@@ -1,0 +1,7 @@
+### Get All Posts
+GET http://localhost:3000/posts
+
+### Get Post By Id
+GET http://localhost:3000/posts/1
+### Get Posts By User Id
+GET http://localhost:3000/posts/user/2

@@ -1,0 +1,9 @@
+POST http://localhost:3000/users
+Content-Type: application/json
+
+//create body
+{
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "Password1234!"
+}

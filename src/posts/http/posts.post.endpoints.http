@@ -1,0 +1,17 @@
+### Create Post
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+//create body
+{
+    "title": "Post 1",
+    "postType": "post",
+    "slug": "post-1",
+    "status": "published",
+    "content": "Content 1",
+    "schema": "{\"type\": \"object\", \"properties\": {\"key1\": {\"type\": \"string\"}}}",
+    "featureImageUrl": "https://example.com/image.jpg",
+    "publishOn": "2026-01-01T00:00:00.000Z",
+    "tags": ["tag1", "tag2"],
+    "metaOptions": [{"key": "key1", "value": "value1"}]
+}
