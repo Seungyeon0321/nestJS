@@ -1,7 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToOne,
+  JoinColumn,
+} from 'typeorm';
 import { PostType } from './dtos/create-post.dto';
 import { PostStatus } from './dtos/create-post.dto';
-import { CreatePostMetaOptionsDto } from './dtos/create-post-meta-options.dto';
+import { MetaOption } from '../meta-options/meta-option.entiti';
 
 // Entity 설정에 있어서 length의 길이의 설정같은 validation 기능은 제공하지 않는다
 @Entity()
@@ -33,7 +39,8 @@ export class Post {
   @Column({ type: 'timestamp', nullable: true })
   publishOn: Date;
 
-  @Column({ type: 'varchar', length: 3, nullable: true })
-  tags: string[];
-  metaOptions: CreatePostMetaOptionsDto[];
+  @OneToOne(() => MetaOption)
+  // JoinColumn은 unidirectional relationship을 사용할 시에 필요한 녀석이다
+  @JoinColumn()
+  metaOptions?: MetaOption;
 }
